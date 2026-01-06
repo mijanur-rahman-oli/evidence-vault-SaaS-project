@@ -1,16 +1,112 @@
-# React + Vite
+Overview
+SentryLink Comply is a B2B compliance SaaS that enables factories to manage evidence vaults and fulfill buyer compliance requests with selective disclosure controls.
+Tech Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend: React 18, Javascript, Tailwind CSS
+Backend: Node.js, Express, PostgreSQL 15, BullMQ
 
-Currently, two official plugins are available:
+Node.js 18+
+PostgreSQL 15+
+Redis 7+ (for BullMQ)
+AWS account (S3 access)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Setup
+bash# Clone repository
+git clone https://github.com/company/sentrylink-comply.git
+cd sentrylink-comply
 
-## React Compiler
+# Install dependencies
+npm install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Setup environment variables
+cp .env.example .env
+# Edit .env with your database/S3 credentials
 
-## Expanding the ESLint configuration
+# Run database migrations
+npm run db:migrate
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Seed test data
+npm run db:seed
+Environment Variables
+bash# Database
+DATABASE_URL=postgresql://user:pass@localhost:5432/sentrylink
+
+# S3
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+S3_BUCKET=sentrylink-evidence
+S3_REGION=us-east-1
+
+# Redis (BullMQ)
+REDIS_URL=redis://localhost:6379
+
+# Auth
+JWT_SECRET=your_secret_key
+JWT_EXPIRY=7d
+
+# App
+NODE_ENV=development
+PORT=3000
+Running the App
+Development
+bash# Start frontend (Next.js)
+npm run dev
+
+# Start backend (Express)
+npm run server:dev
+
+# Start worker (BullMQ)
+npm run worker:dev
+
+# Start all services (concurrently)
+npm run dev:all
+Navigate to http://localhost:3000
+Production
+bash# Build frontend
+npm run build
+
+# Start production server
+npm run start
+
+# Start worker
+npm run worker:start
+Testing
+bash# Unit tests
+npm run test
+
+# Integration tests
+npm run test:integration
+
+# E2E tests
+npm run test:e2e
+
+# Coverage report
+npm run test:coverage
+Key Features
+1. Evidence Vault
+
+Upload compliance documents with versioning
+Filter by type, status, expiry date
+Bulk selection and export packs
+URL query param persistence
+
+2. Evidence Detail
+
+View all versions with history
+Upload new versions with notes
+Download specific versions
+
+3. Buyer Requests
+
+View pending compliance requests
+Fulfill with existing evidence or create new
+Track fulfillment status
+
+4. Selective Disclosure
+
+Buyers only see explicitly shared evidence
+Version-level access control
+Audit trail for all access
+
+License
+Proprietary - Copyright 2026 SentryLink Inc.
