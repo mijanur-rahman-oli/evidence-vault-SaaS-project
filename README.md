@@ -1,7 +1,4 @@
-Overview
-SentryLink Comply is a B2B compliance SaaS that enables factories to manage evidence vaults and fulfill buyer compliance requests with selective disclosure controls.
-Tech Stack
-
+## Evidence Vault SaaS project
 Frontend: React 18, Javascript, Tailwind CSS
 Backend: Node.js, Express, PostgreSQL 15, BullMQ
 
