@@ -1,108 +1,113 @@
-## Evidence Vault SaaS project
-Frontend: React 18, Javascript, Tailwind CSS
-Backend: Node.js, Express, PostgreSQL 15, BullMQ
+# 🛡️ Evidence Vault – SaaS Compliance Platform
 
-Node.js 18+
-PostgreSQL 15+
-Redis 7+ (for BullMQ)
-AWS account (S3 access)
+**Evidence Vault** is a secure, enterprise-ready SaaS application designed for selective disclosure and evidence management. It allows organizations to manage, version, and securely share sensitive compliance documentation with buyers through a controlled audit trail.
 
-Setup
-bash# Clone repository
-git clone [https://github.com/company/sentrylink-comply.git](https://github.com/mijanur-rahman-oli/evidence-vault-SaaS-project.git)
+[Live Demo](https://zingy-belekoy-667664.netlify.app/)
 
-# Install dependencies
+---
+
+## 🚀 Key Features
+
+* **Evidence Vault:** Secure document uploads with full versioning and metadata management.
+* **Selective Disclosure:** Granular, version-level access control for sharing specific data with buyers.
+* **Buyer Request Workflow:** Centralized dashboard to fulfill compliance requests using existing or new evidence.
+* **Audit Trail:** Comprehensive tracking of who accessed what version and when.
+* **Smart Filtering:** URL-persistent filtering by status, expiry, and document type.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* **React 18** – UI Logic
+* **Tailwind CSS** – Utility-first styling
+* **React Query** – State management & caching
+
+### Backend & Infrastructure
+
+* **Node.js (v18+)** & **Express** – Core API
+* **PostgreSQL 15** – Relational data & audit logs
+* **BullMQ (Redis 7+)** – Robust background job processing
+* **AWS S3** – Encrypted cloud file storage
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+* **Node.js** 18.x or higher
+* **PostgreSQL** 15+
+* **Redis** 7+
+* **AWS S3 Bucket** (for file storage)
+
+### Installation
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/mijanur-rahman-oli/evidence-vault-SaaS-project.git
+cd evidence-vault-SaaS-project
+
+```
+
+
+2. **Install dependencies**
+```bash
 npm install
 
-# Setup environment variables
+```
+
+
+3. **Configure Environment**
+```bash
 cp .env.example .env
-# Edit .env with your database/S3 credentials
+# Open .env and fill in your Database, Redis, and AWS credentials
 
-# Run database migrations
+```
+
+
+4. **Initialize Database**
+```bash
 npm run db:migrate
-
-# Seed test data
 npm run db:seed
-Environment Variables
-bash# Database
-DATABASE_URL=postgresql://user:pass@localhost:5432/sentrylink
 
-# S3
-AWS_ACCESS_KEY_ID=your_key
-AWS_SECRET_ACCESS_KEY=your_secret
-S3_BUCKET=sentrylink-evidence
-S3_REGION=us-east-1
+```
 
-# Redis (BullMQ)
-REDIS_URL=redis://localhost:6379
 
-# Auth
-JWT_SECRET=your_secret_key
-JWT_EXPIRY=7d
 
-# App
-NODE_ENV=development
-PORT=3000
-Running the App
-Development
-bash# Start frontend (Next.js)
-npm run dev
+---
 
-# Start backend (Express)
-npm run server:dev
+## 🏃 Running the Application
 
-# Start worker (BullMQ)
-npm run worker:dev
+| Command | Description |
+| --- | --- |
+| `npm run dev:all` | **Recommended:** Starts Frontend, Backend, and Worker concurrently. |
+| `npm run dev` | Starts the React frontend (Port 3000). |
+| `npm run server:dev` | Starts the Express API. |
+| `npm run worker:dev` | Starts the BullMQ background worker. |
 
-# Start all services (concurrently)
-npm run dev:all
-Navigate to http://localhost:3000
-Production
-bash# Build frontend
-npm run build
+---
 
-# Start production server
-npm run start
+## 🧪 Testing Suite
 
-# Start worker
-npm run worker:start
-Testing
-bash# Unit tests
-npm run test
+Maintain high code quality with our integrated testing suite:
 
-# Integration tests
-npm run test:integration
+* **Unit Tests:** `npm run test`
+* **Integration:** `npm run test:integration`
+* **E2E (Cypress/Playwright):** `npm run test:e2e`
+* **Coverage Reports:** `npm run test:coverage`
 
-# E2E tests
-npm run test:e2e
+---
 
-# Coverage report
-npm run test:coverage
-Key Features
-1. Evidence Vault
+## 🔒 Security & License
 
-Upload compliance documents with versioning
-Filter by type, status, expiry date
-Bulk selection and export packs
-URL query param persistence
+* **Auth:** JWT-based authentication with 7-day expiry.
+* **Storage:** All evidence is versioned and stored via AWS S3 with restricted access policies.
+* **License:** Proprietary – © 2026 SentryLink Inc.
 
-2. Evidence Detail
+---
 
-View all versions with history
-Upload new versions with notes
-Download specific versions
+### 💡 What's Next?
 
-3. Buyer Requests
-
-View pending compliance requests
-Fulfill with existing evidence or create new
-Track fulfillment status
-
-4. Selective Disclosure
-
-Buyers only see explicitly shared evidence
-Version-level access control
-Audit trail for all access
-
-License
-Proprietary - Copyright 2026 SentryLink Inc.
+Would you like me to **create a visual architecture diagram description** using Mermaid.js code that you can paste directly into this README?
