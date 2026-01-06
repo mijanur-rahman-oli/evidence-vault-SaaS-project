@@ -9,8 +9,7 @@ AWS account (S3 access)
 
 Setup
 bash# Clone repository
-git clone https://github.com/company/sentrylink-comply.git
-cd sentrylink-comply
+git clone [https://github.com/company/sentrylink-comply.git](https://github.com/mijanur-rahman-oli/evidence-vault-SaaS-project.git)
 
 # Install dependencies
 npm install
